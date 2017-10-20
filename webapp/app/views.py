@@ -18,7 +18,8 @@ def getContent():
         {
             "name": file.name,
             "description": file.description,
-            "path": file.path
+            "path": file.path,
+            "extension": file.extension
         }
         for file in files
     ]

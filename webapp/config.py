@@ -6,11 +6,15 @@ SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 
 
 
-supported_extensions = {
-	'doc': {'pdf'},
-	'video': {'mp4'},
-	'audio': {'mp3'}
+extensions_map = {
+    'doc': {'pdf'},
+    'video': {'mp4'},
+    'audio': {'mp3'}
 }
 
+supported_extensions = set()
+for key in extensions_map:
+    supported_extensions |= extensions_map[key]
 
-KNOWN_FILETYPES = ['mp4']
+
+RESOURCES_PATH = 'resources'
