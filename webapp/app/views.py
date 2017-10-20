@@ -16,6 +16,7 @@ def getContent():
     files = db.session.query(File).filter(File.filetype == filetype).all()
     out = [
         {
+            "id": file.id,
             "name": file.name,
             "description": file.description,
             "path": file.path,
