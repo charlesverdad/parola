@@ -3,7 +3,7 @@ from app import app
 from app.models import File
 from app import db
 import xml.etree.ElementTree as ET
-from config import basedir, bibleVersion
+from config import basedir
 import os
 
 @app.route('/')
@@ -87,4 +87,5 @@ def getVerses():
 
 @app.route('/getAvailableVersions', methods=['GET'])
 def getAvailableVersions():
+    bibleVersion = ['BBE', 'ESV', 'KJV', 'NIV']
     return jsonify({'versions' : bibleVersion});
