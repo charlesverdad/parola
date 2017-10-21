@@ -7,16 +7,37 @@ from config import basedir, bibleVersion
 import os
 
 @app.route('/')
-@app.route('/index')
+@app.route('/home')
 def index():
     return render_template('index.html')
 
+@app.route('/media')
+def media():
+    return render_template('media.html')
+
+@app.route('/bible')
+def bible():
+    return render_template('bible.html')
+
+@app.route('/videos')
+def videos():
+    return render_template('videos.html')
+
+@app.route('/audio')
+def audio():
+    return render_template('audio.html')
+
+@app.route('/books')
+def books():
+    return render_template('books.html')
+
+@app.route('/misc')
+def misc():
+    return render_template('misc.html')
 
 
 @app.route('/getContent', methods=['GET'])
 def getContent():
-# Sample query: GET /getContent?filetype=video
-
     filetype = request.args.get('filetype')
     files = db.session.query(File).filter(File.filetype == filetype).all()
     out = [
