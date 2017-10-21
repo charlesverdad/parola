@@ -15,6 +15,8 @@ def index():
 
 @app.route('/getContent', methods=['GET'])
 def getContent():
+# Sample query: GET /getContent?filetype=video
+
     filetype = request.args.get('filetype')
     files = db.session.query(File).filter(File.filetype == filetype).all()
     out = [
@@ -61,4 +63,3 @@ def getVerses():
             return ' '.join([verse.get('n') + ' ' + verse.text for verse in root[book - 1][chapter - 1]])
     except IOError:
         return 'Version not supported'
-c
