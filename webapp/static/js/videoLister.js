@@ -1,4 +1,3 @@
-a = ''
 $.ajax({
 	type: "GET",
 	url: "/getContent?filetype=video",
@@ -9,7 +8,6 @@ $.ajax({
 		console.log(data[0])
 		content = ''
 
-		a = data
 		for(i = 0; i < data.length; i++ ){
 			console.log(data[i].name)
 			new_item = '<li class="collection-item avatar"><video class="responsive-video" controls>'
