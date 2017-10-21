@@ -19,13 +19,13 @@ def media():
 def bible():
     return render_template('bible.html')
 
-@app.route('/videos')
+@app.route('/movie')
 def videos():
-    return render_template('videos.html')
+    return render_template('movie.html')
 
-@app.route('/audio')
+@app.route('/music')
 def audio():
-    return render_template('audio.html')
+    return render_template('music.html')
 
 @app.route('/books')
 def books():
