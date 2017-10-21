@@ -3,7 +3,7 @@ from app import app
 from app.models import File
 from app import db
 import xml.etree.ElementTree as ET
-from config import basedir
+from config import basedir, bibleVersion
 import os
 
 @app.route('/')
@@ -63,3 +63,7 @@ def getVerses():
             return ' '.join([verse.get('n') + ' ' + verse.text for verse in root[book - 1][chapter - 1]])
     except IOError:
         return 'Version not supported'
+
+@app.route('/getAvailableVersions', methods=['GET'])
+def getAvailableVersions():
+    return jsonify({'versions' : bibleVersion});

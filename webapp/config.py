@@ -18,3 +18,5 @@ for key in extensions_map:
 
 
 RESOURCES_PATH = 'resources'
+
+bibleVersion = ['BBE','ESV','KJV','NIV']
