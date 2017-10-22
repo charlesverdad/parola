@@ -7,10 +7,33 @@ from config import basedir
 import os
 
 @app.route('/')
-@app.route('/index')
+@app.route('/home')
 def index():
     return render_template('index.html')
 
+@app.route('/media')
+def media():
+    return render_template('media.html')
+
+@app.route('/bible')
+def bible():
+    return render_template('bible.html')
+
+@app.route('/movie')
+def videos():
+    return render_template('movie.html')
+
+@app.route('/music')
+def audio():
+    return render_template('music.html')
+
+@app.route('/books')
+def books():
+    return render_template('books.html')
+
+@app.route('/misc')
+def misc():
+    return render_template('misc.html')
 
 
 @app.route('/getContent', methods=['GET'])
@@ -61,4 +84,8 @@ def getVerses():
             return ' '.join([verse.get('n') + ' ' + verse.text for verse in root[book - 1][chapter - 1]])
     except IOError:
         return 'Version not supported'
-c
+
+@app.route('/getAvailableVersions', methods=['GET'])
+def getAvailableVersions():
+    bibleVersion = ['BBE', 'ESV', 'KJV', 'NIV']
+    return jsonify({'versions' : bibleVersion});
